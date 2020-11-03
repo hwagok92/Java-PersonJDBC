@@ -1,0 +1,61 @@
+ojdbc8.jar 가져오는 방법
+프로젝트 이름-마오클릭-
+ojdbc8.jar 의 위치 
+C:\Oracle\product\12.2.0\dbhome_1\jdbc\lib\ojdbc8.jar
+
+drop sequence perseq;
+create sequence perseq
+increment by 1
+start with 1
+minvalue 1;
+
+drop table person;
+create table person(
+	num number primary key,
+	name varchar2(10),
+	age number,
+	gender char(3),
+	birth date default sysdate
+);
+
+insert into person values(perseq.nextval,'보라',23,'여','1992/3/4');
+insert into person values(perseq.nextval,'백현',31,'남',default);
+insert into person values(perseq.nextval,'소유',44,'여','1971/10/09');
+insert into person values(perseq.nextval,'찬열',11,'남',default);
+
+commit;
+select * from person;
+
+
+DAO(Data Access Object)
+-DB를 사용해 데이터를 조회하거나 조작하는 기능을 전담하는 오브젝트
+-실질적인 DB와의 연결을 담당하는 일을 하는 객체
+-데이터 입력, 조회, 수정, 삭제 등의 처리를 담당한다.
+
+
+DTO(Data Transfer Object)
+-데이터의 전달을 위해 만들어지는 오브젝트
+-데이터를 담을 private 변수와 그 변수를 조작할 수 있는 setter,getter 메서드로 구성된다.
+-bean 또는 VO 라고 부르기도 한다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
